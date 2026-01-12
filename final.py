@@ -6,13 +6,18 @@ from streamlit_folium import folium_static
 import requests
 import polyline
 from datetime import datetime
+import os
+from dotenv import load_dotenv
 
 st.set_page_config(page_title="Taxi Fleet Dashboard", layout="wide")
 
+# Load .env file
+load_dotenv()
+
 # API Keys
 
-GOOGLE_MAPS_API_KEY = "AIzaSyCcy95nDmWbTetdEYPLzgy9yv3yM7DiARM"
-TOMORROW_IO_API_KEY = "4LsjteS0iXQikaC5FHsrgAcsmyrc4GEl"
+GOOGLE_MAPS_API_KEY = os.getenv("GOOGLE_MAPS_API_KEY")
+TOMORROW_IO_API_KEY = os.getenv("TOMORROW_IO_API_KEY")  
 
 # Weather Code Mapping
 def map_weather_code(code):
